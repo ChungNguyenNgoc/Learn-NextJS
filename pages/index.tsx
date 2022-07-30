@@ -1,14 +1,28 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const [code, setCode] = useState("Chung");
+  const router = useRouter();
+
   useEffect(() => {
     console.debug(code);
   }, []);
+
+  function goToDetailPage() {
+    router.push({
+      pathname: "/post/[postId]",
+      query: {
+        postId: 123,
+        ref: "social",
+      },
+    });
+  }
 
   return (
     <div className={styles.container}>
@@ -27,6 +41,8 @@ const Home: NextPage = () => {
           Get started by editing{" "}
           <code className={styles.code}>pages/index.tsx</code>
         </p>
+
+        <button onClick={goToDetailPage}>Go to Detail page</button>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
@@ -57,6 +73,14 @@ const Home: NextPage = () => {
             </p>
           </a>
         </div>
+
+        <div style={{ marginTop: "1200px" }}></div>
+
+        <Link href="/about">
+          <a>
+            <strong>Go to About</strong>
+          </a>
+        </Link>
       </main>
 
       <footer className={styles.footer}>
