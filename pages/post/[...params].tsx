@@ -4,6 +4,8 @@ import React from 'react';
 const ParamsPage = () => {
   const router = useRouter();
 
+  console.debug('query: ', router.query);
+
   return (
     <div>
       <h1>ParamsPage</h1>

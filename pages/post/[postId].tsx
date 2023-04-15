@@ -4,6 +4,8 @@ import React from 'react';
 const PostDetailPage = () => {
   const router = useRouter();
 
+  console.debug('pathname: ', router.pathname);
+  console.debug('query: ', router.query);
   return (
     <div>
       <h1>PostDetailPage</h1>
