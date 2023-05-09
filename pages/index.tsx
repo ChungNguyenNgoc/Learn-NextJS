@@ -10,18 +10,19 @@ const Home: NextPage = () => {
   const [code, setCode] = useState('Chung');
   const router = useRouter();
 
-  useEffect(() => {
-    console.debug(code);
-  }, []);
+  console.debug(router.query);
 
   function goToDetailPage() {
-    router.push({
-      pathname: '/post/[postId]',
-      query: {
-        postId: 123,
-        ref: 'social',
-      },
-    });
+    // router.push({
+    //   pathname: '/post/[postId]',
+    //   query: {
+    //     postId: 123,
+    //     ref: 'social',
+    //   },
+    // });
+
+    // Shallow Routing
+    router.push('/?counter=10', '/post?counter=10', { shallow: true });
   }
 
   return (
